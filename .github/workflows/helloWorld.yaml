@@ -1,8 +1,9 @@
 name: Hello world
-on: push:
-  branches:
-    - main
-    workflow_dispatch:
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
   say-hello:
@@ -12,7 +13,6 @@ jobs:
         run: echo "Hello, world!"
         shell: bash
       - uses: actions/checkout@v3
-      - name: Upload artifact
 
   goodbye:
     runs-on: ubuntu-latest
@@ -20,5 +20,6 @@ jobs:
       - name: Say Goodbye
         run: echo "Goodbye, world!"
         shell: bash
+
 
   
