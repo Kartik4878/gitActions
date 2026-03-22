@@ -1,12 +1,14 @@
 name: Adding comment to issues
-on: 
+on:
   issues:
     types: [opened]
 
 jobs:
   add-comment-using-action:
-    runs-on: ubutu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Add comment to issue
-        run: echo ${{toJson(github.event) }}
-        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_URL: ${{ github.event.issue.html_url }}
+        run: gh issue comment $ISSUE_URL --body "This is a comment from a GitHub Action"
