@@ -6,6 +6,8 @@ on:
 jobs:
   add-comment-using-action:
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
     steps:
       - name: Add comment to issue
         uses: peter-evans/create-or-update-comment@v5
