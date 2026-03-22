@@ -1,0 +1,12 @@
+name: Adding comment to issues
+on: 
+  issues:
+    types: [opened]
+
+jobs:
+  add-comment-using-action:
+    runs-on: ubutu-latest
+    steps:
+      - name: Add comment to issue
+        run: echo ${{toJson(github.event) }}
+        shell: bash
