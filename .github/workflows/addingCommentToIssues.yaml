@@ -8,7 +8,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Add comment to issue
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ISSUE_URL: ${{ github.event.issue.html_url }}
-        run: gh issue comment $ISSUE_URL --body "This is a comment from a GitHub Action"
+        run: echo ${{toJson(github.event) }}
